@@ -20,7 +20,7 @@ class DefaultController extends Controller {
     public function behaviors() {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'actions' => ['index', 'view-config'],

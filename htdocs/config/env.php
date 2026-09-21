@@ -1,12 +1,16 @@
 <?php
 
-use \Dotenv as Dotenv;
+use Dotenv\Dotenv;
 
-Dotenv::load(__DIR__.'/..');
-Dotenv::required('YII_DEBUG',['0','1','true']);
-Dotenv::required('YII_ENV',['dev','prod','test']);
-Dotenv::required(['YII_TRACE_LEVEL']);
-Dotenv::required(['APP_NAME','APP_SUPPORT_EMAIL','APP_ADMIN_EMAIL']);
-Dotenv::required(['DATABASE_DSN','DATABASE_USER','DATABASE_PASSWORD','DB_ENV_MYSQL_DATABASE','DB_PORT_3306_TCP_ADDR']);
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
 
-Dotenv::setEnvironmentVariable('APP_VERSION', file_get_contents(__DIR__.'/../version'));
+$dotenv->required('YII_DEBUG')->allowedValues(['0', '1', 'true', 'false']);
+$dotenv->required('YII_ENV')->allowedValues(['dev', 'prod', 'test']);
+$dotenv->required(['YII_TRACE_LEVEL']);
+$dotenv->required(['APP_NAME', 'APP_SUPPORT_EMAIL', 'APP_ADMIN_EMAIL']);
+$dotenv->required(['DATABASE_DSN', 'DATABASE_USER', 'DATABASE_PASSWORD']);
+
+$appVersion = trim((string) file_get_contents(__DIR__ . '/../version'));
+putenv('APP_VERSION=' . $appVersion);
+$_ENV['APP_VERSION'] = $appVersion;

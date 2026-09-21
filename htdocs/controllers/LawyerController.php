@@ -19,7 +19,7 @@ class LawyerController extends Controller {
     public function behaviors() {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     // deny all POST requests
                     [
@@ -34,7 +34,7 @@ class LawyerController extends Controller {
                 ],
             ],            
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
                 ],

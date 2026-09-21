@@ -18,7 +18,7 @@ class UtilitiesController extends Controller {
     public function behaviors() {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     // deny all POST requests
                     [
@@ -33,7 +33,7 @@ class UtilitiesController extends Controller {
                 ],
             ],            
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
                 ],

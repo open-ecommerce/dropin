@@ -27,11 +27,7 @@ $config = [
             'tablePrefix' => getenv('DATABASE_TABLE_PREFIX'),
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            //'viewPath'         => '@common/mail',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
+            'class' => 'yii\symfonymailer\Mailer',
             'useFileTransport' => YII_ENV_PROD ? false : true,
         ],
         'urlManager' => [
@@ -44,7 +40,6 @@ $config = [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@vendor/dektrium/yii2-user/views' => '@app/views/user',
                     '@yii/gii/views/layouts' => '@admin-views/layouts',
                 ],
             ],
@@ -67,18 +62,18 @@ $config = [
         //'i18n' => [],           
         ],
         /* 'docs'    => [
-          'class'  => \schmunk42\markdocs\Module::className(),
+          'class'  => \schmunk42\markdocs\Module::class,
           'layout' => '@app/views/layouts/container',
           ], */
         /* 'packaii' => [
-          'class'  => \schmunk42\packaii\Module::className(),
+          'class'  => \schmunk42\packaii\Module::class,
           'layout' => '@admin-views/layouts/main',
           ], */
         'user' => [
-            'class' => 'dektrium\user\Module',
+            'class' => 'Da\User\Module',
             'layout' => '@admin-views/layouts/main',
             'defaultRoute' => 'profile',
-            'admins' => ['admin']
+            'administrators' => ['admin'],
         ],
     ],
     'params' => [
@@ -86,7 +81,7 @@ $config = [
         'adminEmail' => getenv('APP_ADMIN_EMAIL'),
         'supportEmail' => getenv('APP_SUPPORT_EMAIL'),
         'yii.migrations' => [
-            '@dektrium/user/migrations',
+            '@Da/User/Migration',
         ]
     ]
 ];
@@ -122,7 +117,7 @@ $web = [
             'cookieValidationKey' => getenv('APP_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
-            'identityClass' => 'dektrium\user\models\User',
+            'identityClass' => 'Da\User\Model\User',
         ],
     ]
 ];

@@ -59,6 +59,6 @@ class Customers extends \yii\db\ActiveRecord
      */
     public function getAttendances()
     {
-        return $this->hasMany(Attendance::className(), ['CustomersID' => 'ID']);
+        return $this->hasMany(Attendance::class, ['CustomersID' => 'ID']);
     }
 }

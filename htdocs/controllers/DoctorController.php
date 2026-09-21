@@ -21,7 +21,7 @@ class DoctorController extends Controller {
     public function behaviors() {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     // deny all POST requests
                     [
@@ -36,7 +36,7 @@ class DoctorController extends Controller {
                 ],
             ],            
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -61,7 +61,7 @@ class DoctorController extends Controller {
             //        ->where(['CustomersID' => $ID]);
        
         
-       //$model =  Customers::hasMany(Attendance::className(), ['ID' => 'CustomersID']);
+       //$model =  Customers::hasMany(Attendance::class, ['ID' => 'CustomersID']);
         
        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -73,7 +73,7 @@ class DoctorController extends Controller {
     
     public function getAttendance()
 {
-    return $this->hasOne(Attendance::className(), ['ID' => 'AttendanceID']);
+    return $this->hasOne(Attendance::class, ['ID' => 'AttendanceID']);
 }
 
     /**

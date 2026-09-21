@@ -14,7 +14,7 @@ return [
         'app\assets\AppAsset',
         'yii\bootstrap\BootstrapAsset',
         'app\modules\admin\assets\AdminAsset',
-        \dmstr\web\AdminLteAsset::className()
+        \dmstr\web\AdminLteAsset::class
     ],
     // Asset bundle for compression output:
     'targets'       => [
@@ -38,7 +38,7 @@ return [
             'depends'  => [
                 // Include only 'backend' assets:
                 'app\modules\admin\assets\AdminAsset',
-                \dmstr\web\AdminLteAsset::className()
+                \dmstr\web\AdminLteAsset::class
             ],
         ],
         'all'          => [

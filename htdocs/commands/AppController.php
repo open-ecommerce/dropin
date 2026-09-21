@@ -9,8 +9,7 @@
 
 namespace app\commands;
 
-use dektrium\user\Finder;
-use dektrium\user\ModelManager;
+use Da\User\Model\User as UserModel;
 use dmstr\console\controllers\BaseAppController;
 use mikehaertl\shellcommand\Command;
 use yii\base\Exception;
@@ -193,8 +192,7 @@ class AppController extends BaseAppController
      */
     public function actionSetupAdminUser()
     {
-        $finder = \Yii::$container->get(Finder::className());
-        $admin  = $finder->findUserByUsername('admin');
+        $admin = UserModel::find()->where(['username' => 'admin'])->one();
         if ($admin === null) {
             $email = $this->prompt(
                 'E-Mail for application admin user:',

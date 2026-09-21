@@ -69,6 +69,6 @@ class Attendance extends \yii\db\ActiveRecord
      */
     public function getCustomers()
     {
-        return $this->hasOne(Customers::className(), ['ID' => 'CustomersID']);
+        return $this->hasOne(Customers::class, ['ID' => 'CustomersID']);
     }
 }

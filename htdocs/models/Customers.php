@@ -85,7 +85,7 @@ class Customers extends \yii\db\ActiveRecord {
         //$model =  Attendance::find()->where(['CustomersID'=>$this->ID])->andwhere(['DropinDate'=>$today])->one();
         //$model =  Customers::find()->where(['CustomersID'=>$this->ID])->andwhere(['DropinDate'=>$today])->one();
         //$model = Customers::find()->joinwith('attendance')->all();
-        //$model =  Customers::hasMany(Attendance::className(), ['ID' => 'CustomersID']);
+        //$model =  Customers::hasMany(Attendance::class, ['ID' => 'CustomersID']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $model,
@@ -98,7 +98,7 @@ class Customers extends \yii\db\ActiveRecord {
     }
 
     public function getAttendance() {
-        return $this->hasOne(Attendance::className(), ['CustomersID' => 'ID']);
+        return $this->hasOne(Attendance::class, ['CustomersID' => 'ID']);
     }
 
     public function getLanguage() {
@@ -114,7 +114,7 @@ class Customers extends \yii\db\ActiveRecord {
     }
 
     public function getLanguages() {
-        return $this->hasOne(Languages::className(), ['ID' => 'Interpreter']);
+        return $this->hasOne(Languages::class, ['ID' => 'Interpreter']);
     }
 
     public function getColoredName() {
