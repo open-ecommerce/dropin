@@ -30,7 +30,20 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://asset-packagist.org",
+            "exclude": ["bower-asset/eve"]
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "bower-asset/eve",
+                "version": "0.4.2",
+                "dist": {
+                    "url": "https://github.com/adobe-webplatform/eve/archive/refs/tags/0.4.2.zip",
+                    "type": "zip"
+                },
+                "require": {}
+            }
         }
     ],
     "minimum-stability": "stable",
