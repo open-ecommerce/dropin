@@ -1,3 +1,8 @@
+AuthType Basic
+AuthName "NNLS Drop-in"
+AuthUserFile /var/www/html/.htpasswd
+Require valid-user
+
 RewriteEngine on
 # If a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
