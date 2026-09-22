@@ -31,7 +31,7 @@ $imgPath = $bundle->baseUrl;
             <?php
             NavBar::begin(
                     [
-                        'brandLabel' => '',
+                        'brandLabel' => Html::img(Yii::$app->assetManager->getPublishedUrl('@app/assets/web/dist') . '/img/dropin-logo-s.jpg', ['alt' => 'Drop-in', 'style' => 'height:50px']),
                         'brandUrl' => Yii::$app->homeUrl,
                         'options' => [
                             'class' => 'navbar navbar-fixed-top navbar-bold',
