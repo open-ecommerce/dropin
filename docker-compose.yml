@@ -1,0 +1,49 @@
+services:
+
+  app:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "8080:80"
+    volumes:
+      - ./htdocs:/var/www/html
+    env_file: ./htdocs/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: secretroot
+      MYSQL_DATABASE: dropin
+      MYSQL_USER: dropin
+      MYSQL_PASSWORD: dropin123
+    volumes:
+      - db_data:/var/lib/mysql
+      # Descomentar para importar el dump inicial:
+      # - ./local/dropin_oe.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 15s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: secretroot
+    depends_on:
+      - db
+
+volumes:
+  db_data:

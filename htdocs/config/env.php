@@ -3,7 +3,7 @@
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$dotenv->safeLoad();
 
 $dotenv->required('YII_DEBUG')->allowedValues(['0', '1', 'true', 'false']);
 $dotenv->required('YII_ENV')->allowedValues(['dev', 'prod', 'test']);

@@ -15,4 +15,5 @@ nbproject/private/*
 #project related
 local
 .env
+htdocs/.env
 htdocs/vendor
