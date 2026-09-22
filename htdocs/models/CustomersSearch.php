@@ -55,14 +55,21 @@ class CustomersSearch extends Customers
         $query->joinWith(['attendance']);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['Name'=>SORT_ASC]]
+            'sort' => ['defaultOrder' => ['Name' => SORT_ASC]],
+            'pagination' => false,
         ]);
+
+        // Show empty grid until user applies a filter
+        $hasFilter = !empty(array_filter($params['CustomersSearch'] ?? []));
+        if (!$hasFilter) {
+            $query->where('0=1');
+            return $dataProvider;
+        }
 
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to any records when validation fails
-            // $query->where('0=1');
+            $query->where('0=1');
             return $dataProvider;
         }
 
