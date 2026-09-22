@@ -28,7 +28,7 @@ class DefaultController extends Controller {
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
                     return in_array(
-                            \Yii::$app->user->identity->username, \Yii::$app->getModule('user')->admins
+                            \Yii::$app->user->identity->username, \Yii::$app->getModule('user')->administrators
                     );
                 }
                     ],

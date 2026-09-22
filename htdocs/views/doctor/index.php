@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'vAlign' => 'middle',
             'width' => '30px',
         ],
-        [ 'class' => 'kartik\grid\TrivalentColumn',
+        [ 'class' => 'kartik\grid\BooleanColumn',
             'vAlign' => 'middle',
             'label' => 'Doctor Status',
             'attribute' => 'Doctor',

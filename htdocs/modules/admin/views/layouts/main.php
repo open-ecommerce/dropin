@@ -50,25 +50,26 @@ dmstr\web\AdminLteAsset::register($this);
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-user"></i>
-                            <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                            <span><?= \Yii::$app->user->identity->username ?? '' ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
+                                <?php if (!\Yii::$app->user->isGuest): ?>
                                 <?php echo \cebe\gravatar\Gravatar::widget(
                                     [
                                         'email'   => 'xxx@example.com',
-                                        #\Yii::$app->user->identity->profile->gravatar_email,
                                         'options' => [
-                                            'alt' => \Yii::$app->user->identity->username
+                                            'alt' => \Yii::$app->user->identity->username ?? ''
                                         ],
                                         'size'    => 128
                                     ]
                                 ); ?>
                                 <p>
-                                    <?= \Yii::$app->user->identity->username ?>
-                                    <small><?= \Yii::$app->user->identity->email ?></small>
+                                    <?= \Yii::$app->user->identity->username ?? '' ?>
+                                    <small><?= \Yii::$app->user->identity->email ?? '' ?></small>
                                 </p>
+                                <?php endif; ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">

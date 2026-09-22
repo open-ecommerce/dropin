@@ -6,7 +6,9 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@frontmedia' => '/media',
-        '@admin-views' => '@app/modules/admin/views'
+        '@admin-views' => '@app/modules/admin/views',
+        '@bower' => dirname(__DIR__) . '/vendor/bower-asset',
+        '@npm'   => dirname(__DIR__) . '/vendor/npm-asset',
     ],
     'components' => [
         'assetManager' => [

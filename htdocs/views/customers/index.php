@@ -89,7 +89,7 @@ $this->params['breadcrumbs'][] = $this->title;
             },
         ],
         [
-            'class' => 'kartik\grid\TrivalentColumn',
+            'class' => 'kartik\grid\BooleanColumn',
             'vAlign' => 'middle',
             'label' => 'Doctor',
             'value' => function($model, $index, $dataColumn) {
@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
             },
         ],
         [
-            'class' => 'kartik\grid\TrivalentColumn',
+            'class' => 'kartik\grid\BooleanColumn',
             'vAlign' => 'middle',
             'label' => 'Lawyer',
             'value' => function($model, $index, $dataColumn) {
