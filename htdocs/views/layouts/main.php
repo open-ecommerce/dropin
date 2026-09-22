@@ -49,8 +49,8 @@ $imgPath = $bundle->baseUrl;
                         ['label' => 'Clients Dropin', 'url' => ['/customers/index']],
                         ['label' => 'Doctor List', 'url' => ['/doctor/index']],
                         ['label' => 'Lawyer List', 'url' => ['/lawyer/index']],
+                        ['label' => 'Tutorial', 'url' => ['/site/tutorial']],
                         ['label' => 'Utilities', 'items' => [
-                                ['label' => 'Tutorial', 'url' => ['/site/tutorial']],
                                 ['label' => 'Dropins Dates', 'url' => ['/dropin/index']],
                                 ['label' => 'Export to file', 'url' => ['/customers/export-all']],
                                 ['label' => 'Export with observations', 'url' => ['/customers/export-dropin-obs']],
