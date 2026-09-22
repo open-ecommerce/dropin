@@ -39,7 +39,7 @@ $imgPath = $bundle->baseUrl;
                     ]
             );
             $menuItems = [
-//                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'Tutorial', 'url' => ['/site/tutorial']],
             ];
             if (Yii::$app->hasModule('user')) {
                 if (Yii::$app->user->isGuest) {
