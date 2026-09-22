@@ -7,17 +7,17 @@ use yii\helpers\Html;
 $bundle = AppAsset::register($this);
 $imgPath = $bundle->baseUrl;
 
-$this->title = 'Demo Drop-in Application';
+$this->title = 'NNLS Drop-in';
 ?>
 <div class="site-index ">
     <div class="header vert">
         <div class="container">
-            <h1>Drop-in Demo</h1>
+            <h1>NNLS Drop-in</h1>
             <p class="lead">We are always improving this system and your help is very important</p>
             <br>
         <div>
-            <a href="/"
-            class="btn btn-primary btn-lg">Tutorial</a>
+            <?= Html::a('Tutorial', ['/site/tutorial'], ['class' => 'btn btn-primary btn-lg']) ?>
+            <?= Html::a("Client's List", ['/customers/index'], ['class' => 'btn btn-primary btn-lg']) ?>
         </div>
 
         </div>
