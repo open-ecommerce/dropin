@@ -43,7 +43,6 @@ $imgPath = $bundle->baseUrl;
             ];
             if (Yii::$app->hasModule('user')) {
                 if (Yii::$app->user->isGuest) {
-                    $menuItems[] = ['label' => 'Signup', 'url' => ['/user/registration/register']];
                     $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
                 } else {
                     $menuItems = [
