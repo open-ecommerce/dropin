@@ -82,4 +82,10 @@ class SiteController extends Controller
         $this->layout = 'container';
         return $this->render('about');
     }
+
+    public function actionTutorial()
+    {
+        $this->layout = 'container';
+        return $this->render('tutorial');
+    }
 }
