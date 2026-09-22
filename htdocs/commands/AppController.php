@@ -38,7 +38,7 @@ class AppController extends BaseAppController
     /**
      * Displays application version from git describe and writes it to `version`
      */
-    public function actionVersion()
+    public function actionVersion($alias = '@app/version')
     {
         echo "Application Version\n";
         $cmd = new Command("git describe --dirty");
