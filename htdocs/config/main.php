@@ -75,7 +75,11 @@ $config = [
             'class' => 'Da\User\Module',
             'layout' => '@admin-views/layouts/main',
             'defaultRoute' => 'profile',
-            'administrators' => ['admin', 'eduado'],
+            'administrators' => ['admin', 'eduardo'],
+            'enableRegistration' => false,
+            'enableEmailConfirmation' => false,
+            'generatePasswords' => false,
+            'allowUnconfirmedEmailLogin' => true,
         ],
     ],
     'params' => [
