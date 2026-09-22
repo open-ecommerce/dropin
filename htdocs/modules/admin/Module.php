@@ -24,7 +24,6 @@ class Module extends \yii\base\Module
         $menuItemPresets = [
             'admin'   => ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/admin']],
             'user'    => ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
-            'backuprestore'    => ['label' => '<i class="fa fa-database"></i> <span>Backup Restore DB</span>', 'url' => ['/backuprestore']],
             'packaii' => ['label' => '<i class="fa fa-cubes"></i> <span>Packages</span>', 'url' => ['/packaii']],
             'gii'     => ['label' => '<i class="fa fa-code"></i> <span>Code Generation</span>', 'url' => ['/gii']],
         ];
@@ -46,9 +45,6 @@ class Module extends \yii\base\Module
                     ];
             }
         }
-        $menuItems[] = $menuItemPresets['backuprestore'];
-
-
         $menuItems = ArrayHelper::merge($menuItems, $autoMenuItems);
 
         return $menuItems;

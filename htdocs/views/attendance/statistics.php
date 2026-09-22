@@ -107,7 +107,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'headerRowOptions' => ['class' => 'kartik-sheet-style'],
                     //'filterRowOptions' => ['class' => 'kartik-sheet-style'],
                     'responsive' => true,
-                    'pager' => false,
                     'pjax' => true, // pjax is set to always true for this demo
                     'pjaxSettings' => [
                         'neverTimeout' => true,

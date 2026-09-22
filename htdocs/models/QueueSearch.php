@@ -51,6 +51,7 @@ class QueueSearch extends Attendance
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort'=> ['defaultOrder' => ['DropinTime'=>SORT_ASC]],
+            'pagination' => false,
         ]);
 
         $this->load($params);

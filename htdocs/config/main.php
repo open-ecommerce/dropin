@@ -75,7 +75,7 @@ $config = [
             'class' => 'Da\User\Module',
             'layout' => '@admin-views/layouts/main',
             'defaultRoute' => 'profile',
-            'administrators' => ['admin'],
+            'administrators' => ['admin', 'eduado'],
         ],
     ],
     'params' => [
@@ -158,7 +158,10 @@ $allowedIPs = [
     '127.0.0.1',
     '::1',
     '192.168.*',
-    '172.17.*'
+    '172.16.*',
+    '172.17.*',
+    '172.18.*',
+    '172.19.*',
 ];
 
 if (php_sapi_name() == 'cli') {
