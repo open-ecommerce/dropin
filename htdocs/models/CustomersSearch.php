@@ -56,7 +56,7 @@ class CustomersSearch extends Customers
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => ['defaultOrder' => ['Name' => SORT_ASC]],
-            'pagination' => false,
+            'pagination' => ['pageSize' => 50],
         ]);
 
         // Show empty grid until user applies a filter
