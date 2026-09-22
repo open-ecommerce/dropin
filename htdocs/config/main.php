@@ -81,7 +81,7 @@ $config = [
         'adminEmail' => getenv('APP_ADMIN_EMAIL'),
         'supportEmail' => getenv('APP_SUPPORT_EMAIL'),
         'yii.migrations' => [
-            '@Da/User/Migration',
+            '@vendor/2amigos/yii2-usuario/src/User/Migration',
         ]
     ]
 ];
@@ -126,7 +126,11 @@ $web = [
 $console = [
     'controllerNamespace' => 'app\commands',
     'controllerMap' => [
-        'migrate' => 'dmstr\console\controllers\MigrateController'
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => ['@app/migrations'],
+            'migrationNamespaces' => ['Da\User\Migration'],
+        ],
     ],
     'components' => [
         'log' => [
