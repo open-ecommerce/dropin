@@ -59,9 +59,12 @@ class CustomersSearch extends Customers
             'pagination' => ['pageSize' => 50],
         ]);
 
-        // Show empty grid until user applies a filter
-        $hasFilter = !empty(array_filter($params['CustomersSearch'] ?? []));
-        if (!$hasFilter) {
+        // Require at least 3 chars on text fields, or an exact match on ID/Gender/Eligible
+        $search = $params['CustomersSearch'] ?? [];
+        $exactFields = ['ID', 'Gender', 'Eligible'];
+        $hasExact = (bool) array_filter(array_intersect_key($search, array_flip($exactFields)));
+        $hasText = (bool) array_filter($search, fn($v) => mb_strlen((string) $v) >= 3);
+        if (!$hasExact && !$hasText) {
             $query->where('0=1');
             return $dataProvider;
         }
