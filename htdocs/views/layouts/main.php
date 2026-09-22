@@ -39,7 +39,6 @@ $imgPath = $bundle->baseUrl;
                     ]
             );
             $menuItems = [
-                ['label' => 'About', 'url' => ['/site/about']],
 //                ['label' => 'Contact', 'url' => ['/site/contact']],
             ];
             if (Yii::$app->hasModule('user')) {
@@ -92,8 +91,7 @@ $imgPath = $bundle->baseUrl;
         <footer class="footer">
             <div class="container">
                 <p class="pull-right">
-                    &copy; <?= date('Y') ?> |
-<?= Html::a('About', ['/site/about']) ?>
+                    &copy; <?= date('Y') ?>
                 </p>
 
                 <p class="pull-left"><?=
