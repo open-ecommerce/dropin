@@ -51,7 +51,7 @@ class CustomersSearch extends Customers
      */
     public function search($params)
     {
-        $query = Customers::find();
+        $query = Customers::find()->distinct();
         $query->joinWith(['attendance']);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
