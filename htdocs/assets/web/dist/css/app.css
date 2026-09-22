@@ -6851,13 +6851,13 @@ a.btn.btn-success.create-backup {
 }
 .header {
   height: 80%;
-  background: #222222 url('../img/dropin-demo-hero.jpg') no-repeat center center;
+  background: #222222 url('../img/home-hero.png') no-repeat center center;
   background-size: cover;
   text-align: center;
 }
 @media (max-width: 767px) {
   .header {
-    background: #222222 url('../img/dropin-demo-hero.jpg') no-repeat center center;
+    background: #222222 url('../img/home-hero.png') no-repeat center center;
   }
 }
 .header h1 {
