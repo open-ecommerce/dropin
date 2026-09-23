@@ -48,8 +48,13 @@ $deleteMsg = "Are you sure you want to delete this client dropin detail?";
             'class' => 'kartik\grid\ActionColumn',
             'header' => 'Delete',
             'template' => '{delete}',
-            'deleteOptions' => ['label' => '<i class="glyphicon glyphicon-trash"></i>'],
-            'deleteOptions' => ['title' => $deleteTip, 'data-toggle' => 'tooltip', 'data-confirm' => $deleteMsg],
+            'deleteOptions' => [
+                'label' => '<i class="glyphicon glyphicon-trash"></i>',
+                'title' => $deleteTip,
+                'data-toggle' => 'tooltip',
+                'data-confirm' => $deleteMsg,
+                'data-pjax' => '0',
+            ],
         ],        
         
         
@@ -65,7 +70,7 @@ $deleteMsg = "Are you sure you want to delete this client dropin detail?";
         'responsive' => true,
         'resizableColumns' => false,
         'headerRowOptions' => ['class' => 'kartik-sheet-style'],
-        'pjax' => true, // pjax is set to always true for this demo
+        'pjax' => false,
         'hover' => true,
         'toolbar' => false,
 //        'panel' => [
