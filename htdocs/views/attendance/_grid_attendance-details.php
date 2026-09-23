@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use kartik\grid\GridView;
 
 
@@ -12,18 +13,21 @@ use kartik\grid\GridView;
 $deleteTip = "Delete this Dropin attendances records.";
 $deleteMsg = "Are you sure you want to delete this client dropin detail?";
 
+$csrfParam = Yii::$app->request->csrfParam;
+$csrfToken = Yii::$app->request->csrfToken;
+
 ?>
 
 
 <div class="customers-attendance-list">
     <?php
-    $gridColumns = [ 
+    $gridColumns = [
         [
             'attribute' => 'DropinDate',
             'format' => ['date', 'php:d M Y'],
             'hAlign' => 'center',
             'vAlign' => 'middle',
-            'width' => '30px',            
+            'width' => '30px',
         ],
         [
             'class' => 'kartik\grid\BooleanColumn',
@@ -45,16 +49,23 @@ $deleteMsg = "Are you sure you want to delete this client dropin detail?";
             'vAlign' => 'middle',
         ],
         [
-            'class' => 'kartik\grid\ActionColumn',
             'header' => 'Delete',
-            'template' => '{delete}',
-            'deleteOptions' => [
-                'label' => '<i class="glyphicon glyphicon-trash"></i>',
-                'title' => $deleteTip,
-                'data-toggle' => 'tooltip',
-                'data-confirm' => $deleteMsg,
-                'data-pjax' => '0',
-            ],
+            'format' => 'raw',
+            'value' => function($model) use ($deleteTip, $deleteMsg, $csrfParam, $csrfToken) {
+                $url = Html::encode(Url::to(['/attendance/delete', 'id' => $model->ID]));
+                $msg = Html::encode($deleteMsg);
+                // Use native DOM form submit to bypass yii.js/PJAX entirely
+                $js = "if(confirm('{$msg}')){var f=document.createElement('form');"
+                    . "f.method='post';f.action='{$url}';"
+                    . "var i=document.createElement('input');i.type='hidden';"
+                    . "i.name='{$csrfParam}';i.value='{$csrfToken}';"
+                    . "f.appendChild(i);document.body.appendChild(f);f.submit();}";
+                return Html::button(
+                    '<i class="glyphicon glyphicon-trash"></i>',
+                    ['type' => 'button', 'class' => 'btn btn-danger btn-xs',
+                     'title' => $deleteTip, 'onclick' => $js]
+                );
+            },
         ],        
         
         
