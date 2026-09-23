@@ -6790,8 +6790,11 @@ h1 small,
 }
 /* -- end custom css for Bootstrap 3.x --*/
 a.navbar-brand {
-  background: #262626 url("../img/dropin-logo-s.jpg") no-repeat;
+  height: 60px;
+  background: #262626 url("../img/dropin-logo-s.jpg") no-repeat center left;
+  background-size: contain;
   width: 344px;
+  padding: 0;
 }
 .container {
   width: 100%;
@@ -6832,8 +6835,7 @@ div#hero img {
 }
 @media (max-width: 950px) {
   a.navbar-brand {
-    background: #262626 url("images/NNLS-logo-s.jpg") no-repeat;
-    width: 106px;
+    width: 200px;
   }
 }
 a.btn.btn-success.create-backup {
