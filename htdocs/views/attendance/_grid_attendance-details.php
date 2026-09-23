@@ -59,7 +59,11 @@ $csrfToken = Yii::$app->request->csrfToken;
                     . "f.method='post';f.action='{$url}';"
                     . "var i=document.createElement('input');i.type='hidden';"
                     . "i.name='{$csrfParam}';i.value='{$csrfToken}';"
-                    . "f.appendChild(i);document.body.appendChild(f);f.submit();}";
+                    . "f.appendChild(i);"
+                    . "var r=document.createElement('input');r.type='hidden';"
+                    . "r.name='returnUrl';r.value=window.location.href;"
+                    . "f.appendChild(r);"
+                    . "document.body.appendChild(f);f.submit();}";
                 return Html::button(
                     '<i class="glyphicon glyphicon-trash"></i>',
                     ['type' => 'button', 'class' => 'btn btn-danger btn-xs',

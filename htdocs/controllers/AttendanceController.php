@@ -239,6 +239,11 @@ class AttendanceController extends Controller {
     public function actionDelete($id) {
         $this->findModel($id)->delete();
 
+        $returnUrl = Yii::$app->request->post('returnUrl');
+        if ($returnUrl && strncmp($returnUrl, Yii::$app->request->hostInfo, strlen(Yii::$app->request->hostInfo)) === 0) {
+            return $this->redirect($returnUrl);
+        }
+
         return $this->redirect(['customers/index']);
     }
 
