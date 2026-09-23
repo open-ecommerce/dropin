@@ -1,6 +1,9 @@
 <?php
 
+use app\assets\AppAsset;
 use yii\helpers\Html;
+
+$imgPath = AppAsset::register($this)->baseUrl;
 
 ?>
 <div class="modal-dialog">
@@ -10,7 +13,7 @@ use yii\helpers\Html;
                     class="sr-only">Close</span></button>
             <div class="text-center">
                 <br>
-                <?= Html::img('media/NNLS-logo-s.jpg') ?>
+                <?= Html::img($imgPath . '/img/dropin-logo-s.jpg') ?>
                 <br>
                 <h3><?= getenv('APP_NAME') ?></h3>
                 <p>
@@ -21,7 +24,7 @@ use yii\helpers\Html;
                 </p>
                 <br>
                 <p class="small">
-                    <?= Html::a(Html::img('media/powered-by-open-ecommerce-org.png'), 'http://open-ecommerce.org') ?>
+                    <?= Html::a(Html::img($imgPath . '/img/powered-by-open-ecommerce-org.png'), 'http://open-ecommerce.org') ?>
                 </p>
                 <br>
             </div>
