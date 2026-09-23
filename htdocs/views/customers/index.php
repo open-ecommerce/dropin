@@ -164,10 +164,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
 
 
-            <?=
-            GridView::widget([
+            <?php
+            $searchParams = Yii::$app->request->get('CustomersSearch', []);
+            $hasSearch = !empty(array_filter($searchParams, fn($v) => $v !== ''));
+            $emptyText = $hasSearch
+                ? 'No clients found matching your search.'
+                : '<div class="text-center" style="padding:30px">
+                       <i class="glyphicon glyphicon-search" style="font-size:2em;color:#aaa"></i>
+                       <p style="font-size:1.2em;margin-top:10px;color:#555">
+                           Type at least <strong>3 letters</strong> in the Name field above and press Enter to search for clients.
+                       </p>
+                   </div>';
+
+            echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                'emptyText' => $emptyText,
                 'resizableColumns' => false,
                 'showPageSummary' => false,
                 'headerRowOptions' => ['class' => 'kartik-sheet-style'],
