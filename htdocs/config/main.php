@@ -30,7 +30,7 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\symfonymailer\Mailer',
-            'useFileTransport' => YII_ENV_PROD ? false : true,
+            'useFileTransport' => true,
         ],
         'urlManager' => [
             'enablePrettyUrl' => getenv('APP_PRETTY_URLS') ? true : false,
